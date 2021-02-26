@@ -23,8 +23,8 @@ class FilmType extends AbstractType
             ->add('Picture')
             ->add('TrailerLink')
             ->add('User')
-            ->add('save',SubmitType::class, array('label' => 'Continue',  'attr' => array('class'=>'btn btn-primary')))
-                
+            ->add('save', SubmitType::class, array('label' => 'Continue',  'attr' => array('class'=>'class="p-2 border-white')))
+        ;
         ;
     }
 

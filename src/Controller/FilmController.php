@@ -64,7 +64,7 @@ class FilmController extends AbstractController
     public function edit(Request $request, Film $film): Response
     {
         $form = $this->createForm(FilmType::class, $film);
-        $editForm = $this->createForm('App\Form\FilmType',$film);
+        
         $form->handleRequest($request);
         $deleteForm = $this->createDeleteForm($film);
 
@@ -73,11 +73,11 @@ class FilmController extends AbstractController
 
             return $this->redirectToRoute('film_index');
         }
-
+        $editForm = $this->createForm('App\Form\FilmType',$film);
         return $this->render('film/edit.html.twig', [
             'film' => $film,
             'edit_form' => $editForm->createView(),
-             'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView(),
         ]);
     }
 
