@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Film</h1>
+    <div class="container">
+        <div class="card">
+            <img class="card-img-top" src="https://picsum.photos/200" width="50" height="100" alt="ImgFilm">
+            <div class="card-body">
+                <h5 class="card-title">{{ film.tittle }}</h5>
+                <table class="table-borderless table-responsive">
+                    <tr scope="row" class="pb-2">
+                        <td ><h6 class="text-muted">DESCRIPTION:</h6></td>
+                        <td>{{ film.Description }}</td>
+                    </tr>
+                    <tr scope="row" class="pb-2">
+                        <td ><h6 class="text-muted">DIRECTOR:</h6></td>
+                        <td>{{ film.Director }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <a class="btn btn-primary" href="{{ path('film_edit', {'id': film.id}) }}">EDIT</a>            
+            {{ include('film/_delete_form.html.twig') }}
+        </div>
+    </div>
+    <div class="card" style=" margin:auto; width: 60%; padding:10px; border: 0px ">
+        <video width="400" style=" margin:auto; width: 80%; padding:10px" controls>
+            <source src="{{ film.TrailerLink }}" type="video/mp4">           
+        </video>
+    </div>
+
+
+
+
+
+    <a class="btn btn-primary" href="{{ path('film_index') }}">back to list</a>
+
+
+
+{% endblock %}

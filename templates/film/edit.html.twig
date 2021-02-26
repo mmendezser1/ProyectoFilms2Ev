@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Film{% endblock %}
+
+{% block body %}
+    
+
+
+    <a href="{{ path('film_index') }}">back to list</a>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">FILM</h3>
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-subtitle mb-2 text-muted">EDIT FIlM</h4>
+                          
+                        </div>
+
+                        <div class="card-text">
+                            {{ form_start(edit_form, {'action': path('film_edit',{'id':film.id}), 'method': 'POST'}) }}
+                            <div class="border border-white row">
+                                <label for="tittle"
+                                       class="col-4 col-form-label">{{ form_label(edit_form.Tittle) }}</label>
+                                <div class="col-8">
+                                    {{ form_widget(edit_form.Tittle)}}
+                                </div>
+                            </div> 
+                             
+                            <div class="border border-white  row">
+                                <label for="vOfferType"
+                                       class="col-4 col-form-label">{{ form_label(edit_form.Description)}}</label>
+                                <div class="col-8">
+                                    {{ form_widget(edit_form.Description)}}
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="dActivationDate"
+                                       class="col-4 col-form-label">{{ form_label(edit_form.Director)}}</label>
+                                <div class="col-8 input-group date" data-provide="datepicker">
+                                    {{ form_widget(edit_form.Director)}}
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="dDueDate"
+                                       class="col-4 col-form-label">{{ form_label(edit_form.Picture)}}</label>
+                                <div class="col-8 input-group date" data-provide="datepicker">
+                                   {{ form_widget(edit_form.Picture)}}
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="vPosition"
+                                       class="col-4 col-form-label">{{ form_label(edit_form.TrailerLink)}}</label>
+                                <div class="col-8">
+                                   {{ form_widget(edit_form.TrailerLink)}}
+                                </div>
+                            </div>     
+                                
+                            <div class="d-flex ">
+                                <div class="p-2">
+                                    {{ form_widget(edit_form.save) }}
+                                </div>
+                            </div>
+                             <div class="p-2">
+                                {{ form_start(delete_form, {'action': path('film_delete',{'id':film.id})}) }}
+                                <input type="submit" value="Delete">
+                                {{ form_end(delete_form) }}
+                            </div>
+
+                           
+                        </div>
+                        {{ form_end(edit_form) }}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

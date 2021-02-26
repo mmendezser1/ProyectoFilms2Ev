@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block navbar %}
+    {% include 'navbar/public.html.twig'%}
+{% endblock %}
+
+{% block title %}Hello Films!{% endblock %}
+
+{% block body %}
+    
+  <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }       
+    </style>
+
+ <a class="btn btn-primary"href="{{ path('film_new') }}">Create new FILM</a>
+    <div class="container-fluid alert alert-dark alert-dismissible fade show pt-0 pb-2"  role="alert" >
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <h2 class="alert-heading display-2">WELCOME TO FILMS</h2>
+                <hr>
+                <p class="mb-0 lead">Servicio gratuito cuya finalidad es compartir las mejores peliculas.</p>
+            </div>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <h6 class="lead">A continuación ofrecemos las peliculas.</h6>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3">
+                {% for film in films %}   
+                    <div class="card m-2" style="width: 18rem;">
+
+                        <img class="card-img-top" src="https://picsum.photos/200/300" alt="cardImg">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ film.getTittle() }}</h5>
+                            <p class="card-text">{{ film.getDescription()|raw }}</p>  
+                        </div>
+                         <a href="{{ path('film_show', {'id': film.id}) }}" class="btn btn-primary">DETAILS</a>
+                         <br>
+                         <a href="{{ path('film_edit', {'id': film.id}) }}" class="btn btn-primary">EDIT</a>
+                         <br>
+
+                    </div> {% endfor %}
+                </div>
+
+
+            </div>
+
+        </div>    
+
+   
+{% endblock %}

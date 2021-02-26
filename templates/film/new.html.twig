@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Film{% endblock %}
+
+{% block body %}
+    <h1>Create new Film</h1>
+    <!-- {{ parent() }} -->
+   <!-- 
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">FILM</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">Add new FILM</h4>
+                        <div class="card-text">
+                            
+
+                            <div class="border border-white row">
+                                <label for="vPosition"
+                                       class="col-2 col-form-label">TITTLE</label>
+                                <div class="col-10">
+                                    
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="vEmployer"
+                                       class="col-sm-2 col-form-label"></label>
+                                <div class="col-10">
+                                    
+                                </div>
+                            </div>
+                            <div class="border border-white row ">
+                                <label for="vLocation"
+                                       class="col-2 col-form-label"></label>
+                                <div class="col-10">
+                                    
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="ltextDuties"
+                                       class="col-2 col-form-label"></label>
+                                <div class="col-10">
+                                    
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="dStartDate"
+                                       class="col-2 col-form-label"></label>
+                                <div class="col-10 textarea">
+                                    <div class="input-group date" data-provide="datepicker">
+                                        
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="dEndDate"
+                                       class="col-2 col-form-label"></label>
+                                <div class="col-10">
+                                    <div class="input-group date" data-provide="datepicker">                                       
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-white  row">
+                                <div class="col-4 textarea">                            
+                                </div>
+                                <div class="col--4 textarea">                                    
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+   -->
+
+    {{ include('film/_form.html.twig') }}
+
+    <a href="{{ path('film_index') }}">back to list</a>
+{% endblock %}
